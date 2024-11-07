@@ -1,20 +1,24 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ErrorPage } from "./error";
+import { ContactPage } from "./routes/contact";
+import { Root } from "./routes/root";
 import "./tutorial.css";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>hey hey</div>,
+    element: <Root />,
+    errorElement: <ErrorPage />,
   },
   {
-    path: "/hey",
-    element: <div>dog</div>,
+    path: "contacts/:contactId",
+    element: <ContactPage />,
   },
 ]);
 
 export const Tutorial: React.FC = () => {
   return (
-    <div>
+    <div style={{ height: "40%" }}>
       <h3>Tutorial</h3>
       <RouterProvider router={router} />
     </div>
